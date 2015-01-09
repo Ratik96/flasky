@@ -11,5 +11,5 @@ Instructions
 ------------
 1. Place the script in a folder where you want to create the Flask application
 2. Open up terminal and change your directory to the folder where you placed the script
-3. Run the following command to give the script the required permissions ```sudo chmod 700 file.sh```
+3. Run the following to give the script the required permissions ```sudo chmod 700 file.sh```
 4. Run the script using ```./flasky.sh```
