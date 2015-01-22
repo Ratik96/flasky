@@ -1,15 +1,21 @@
 read -p "Application name: " app_name
 mkdir $app_name
 echo "========= Added main directory ========="
-read -p "Do you want to setup a virtualenv? (y/n) " venv
+read -p "Do you want to setup a virtualenv? (y/n): " venv
 if [ $venv = "y" ]; then
-   mkdir flask
-  cd flask
-  virtualenv .
-  source bin/activate
-  pip install flask
-  cd ../
-  echo "========= Flask installed ========="
+    mkdir flask
+    cd flask
+    read -p "Do you want to Python2 or Python3 for the project? (2/3): " version
+    echo $version
+    if [ $version = 2 ]; then
+        virtualenv .
+    else
+        virtualenv -p python3 .
+    fi
+    source bin/activate
+    pip install flask
+    cd ../
+    echo "========= Flask installed ========="
 fi
 cd $app_name
 touch runserver.py
