@@ -19,13 +19,13 @@ if [ $venv = "y" ]; then
 fi
 cd $app_name
 touch runserver.py
-printf 'from %s import app' $app_name >> runserver.py
+printf 'from %s import app\n\napp.run()' $app_name >> runserver.py
 echo "========= Added runserver.py ========="
 mkdir $app_name
 cd $app_name
 touch __init__.py views.py
 printf 'from flask import Flask\napp = Flask(__name__)\n\nfrom %s import views' $app_name>> __init__.py
-printf 'from %s import app\n\n@app.route("/"")\ndef index():\n\treturn "Hello World!"' $app_name>> views.py
+printf 'from %s import app\n\n@app.route("/")\ndef index():\n\treturn "Hello World!"' $app_name>> views.py
 echo "========= __init__ and views.py added ========="
 mkdir static
 mkdir templates
